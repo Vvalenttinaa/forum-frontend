@@ -1,0 +1,67 @@
+<table>
+  <thead>
+    <tr>
+      <th class="width-max">ID</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Active</th>
+      <th>Blocked</th>
+      <th>Approved</th>
+      <th>Group</th>
+      <th>Permissions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (u of users; track $index) {
+    <tr>
+      <td class="width-max">{{ u.id }}</td>
+      <td>{{ u.username }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{u.active}}</td>
+      <td>
+        <mat-form-field>
+          <mat-select
+            [(value)]="u.blocked"
+            (selectionChange)="onBlockedChange(u, $event.value)"
+          >
+            <mat-option [value]="true">True</mat-option>
+            <mat-option [value]="false">False</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td><mat-form-field>
+        <mat-select
+          [(value)]="u.approved"
+          (selectionChange)="onApprovedChange(u, $event.value)"
+        >
+          <mat-option [value]="true">True</mat-option>
+          <mat-option [value]="false">False</mat-option>
+        </mat-select>
+      </mat-form-field></td>
+    <td>
+      <mat-form-field>
+        <mat-select
+          [(value)]="u.role.name"
+          (selectionChange)="onGroupChange(u, $event.value)"
+        >
+          <mat-option [value]="'admin'">Admin</mat-option>
+          <mat-option [value]="'moderator'">Moderator</mat-option>
+          <mat-option [value]="'user'">User</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
+    <td style="display: flex; flex-direction: column;">
+      <mat-checkbox color="primary" (change)="onPermissionChange(u, 'view', $event.checked)" 
+      [checked]="hasPermission(u, 'VIEW')"
+      >View</mat-checkbox>
+      <mat-checkbox color="primary" (change)="onPermissionChange(u, 'edit', $event.checked)" [checked]="hasPermission(u, 'EDIT')"
+      >Edit</mat-checkbox>
+      <mat-checkbox color="primary" (change)="onPermissionChange(u, 'add', $event.checked)" [checked]="hasPermission(u, 'ADD')"
+      >Add</mat-checkbox>
+      <mat-checkbox color="primary" (change)="onPermissionChange(u, 'delete', $event.checked)" [checked]="hasPermission(u, 'DELETE')"
+      >Delete</mat-checkbox>
+    </td>
+  </tr>
+    }
+  </tbody>
+</table>

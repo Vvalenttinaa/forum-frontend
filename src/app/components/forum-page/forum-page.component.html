@@ -1,0 +1,138 @@
+<div class="container">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Sport </mat-panel-title>
+      <mat-panel-description>
+        View all comments for sport
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th style="width: 40%">Content</th>
+          <th>Date and time</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of commentsSport; track $index) {
+        <tr>
+          <td>{{ c.username }}</td>
+          <td>{{ c.content }}</td>
+          <td>{{ c.createdAt | date: "short" }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    <form (ngSubmit)="addComment(1)" [formGroup]="commentForms[1]">
+      <mat-form-field style="width: 70%" appearance="outline">
+        <mat-label>Comment</mat-label>
+        <input matInput formControlName="content" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">
+        Add comment
+      </button>
+    </form>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Science </mat-panel-title>
+      <mat-panel-description>
+        View all comments for science
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Content</th>
+          <th>Date and time</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of commentsScience; track $index) {
+        <tr>
+          <td>{{ c.username }}</td>
+          <td>{{ c.content }}</td>
+          <td>{{ c.createdAt | date: "short" }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    <form (ngSubmit)="addComment(2)" [formGroup]="commentForms[2]">
+      <mat-form-field style="width: 70%" appearance="outline">
+        <mat-label>Comment</mat-label>
+        <input matInput formControlName="content" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">
+        Add comment
+      </button>
+    </form>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Culture </mat-panel-title>
+      <mat-panel-description> View all comments </mat-panel-description>
+    </mat-expansion-panel-header>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Content</th>
+          <th>Date and time</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of commentsCulture; track $index) {
+        <tr>
+          <td>{{ c.username }}</td>
+          <td>{{ c.content }}</td>
+          <td>{{ c.createdAt | date: "short" }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    <form (ngSubmit)="addComment(3)" [formGroup]="commentForms[3]">
+      <mat-form-field style="width: 70%" appearance="outline">
+        <mat-label>Comment</mat-label>
+        <input matInput formControlName="content" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">
+        Add comment
+      </button>
+    </form>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Music </mat-panel-title>
+      <mat-panel-description> View all comments </mat-panel-description>
+    </mat-expansion-panel-header>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Content</th>
+          <th>Date and time</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of commentsMusic; track $index) {
+        <tr>
+          <td>{{ c.username }}</td>
+          <td>{{ c.content }}</td>
+          <td>{{ c.createdAt | date: "short" }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    <form (ngSubmit)="addComment(4)" [formGroup]="commentForms[4]">
+      <mat-form-field style="width: 70%" appearance="outline">
+        <mat-label>Comment</mat-label>
+        <input matInput formControlName="content" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">
+        Add comment
+      </button>
+    </form>
+  </mat-expansion-panel>
+</div>

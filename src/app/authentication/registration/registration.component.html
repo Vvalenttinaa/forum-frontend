@@ -1,0 +1,91 @@
+<div class="center">
+    <mat-card class="register-card">
+      <mat-card-title>Registration</mat-card-title>
+      <mat-card-content>
+        <form
+          class="register-form"
+          [formGroup]="registerForm"
+          (ngSubmit)="register()"
+        >
+          <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Username"
+              formControlName="username"
+              maxlength="45"
+              required
+            />@if (this.registerForm.get('username')?.hasError('required')) {
+            <mat-error>Field is required!!</mat-error>
+            } @if (this.registerForm.get('username')?.hasError('manLength')) {
+            <mat-error>Field content is too long!</mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              placeholder="Password"
+              formControlName="password"
+              required
+              maxlength="255"
+            />
+            @if (this.registerForm.get('password')?.hasError('required')) {
+            <mat-error>Field is required!!</mat-error>
+            } @if (this.registerForm.get('password')?.hasError('maxLength')) {
+            <mat-error>Field content is too long!</mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>E-mail</mat-label>
+            <input
+              type="email"
+              matInput
+              placeholder="pat@example.com"
+              formControlName="email"
+              maxlength="100"
+              required
+            />
+            @if (this.registerForm.get('email')?.hasError('required')) {
+            <mat-error>Field is required!!</mat-error>
+            } @if (this.registerForm.get('email')?.hasError('maxLength')) {
+            <mat-error>Field content is too long!</mat-error>
+            } @if (this.registerForm.get('email')?.hasError('email')) {
+            <mat-error>Email format expected!</mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Role</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Role"
+              formControlName="role"
+              maxlength="45"
+              required
+            />@if (this.registerForm.get('role')?.hasError('required')) {
+            <mat-error>Field is required!!</mat-error>
+            } @if (this.registerForm.get('role')?.hasError('maxLength')) {
+            <mat-error>Field content is too long!</mat-error>
+            }
+          </mat-form-field>
+    
+          <div class="link">
+            <a routerLink="login" class="login-link">
+              Already have an account? &nbsp;<strong> Log in</strong></a
+            >
+          </div>
+          <br />
+          <div class="button">
+            <button type="submit" mat-fab extended color="primary">
+              Register
+            </button>
+          </div>
+        </form>
+        
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

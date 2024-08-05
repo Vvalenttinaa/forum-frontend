@@ -1,0 +1,203 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title> Sport </mat-panel-title>
+        <mat-panel-description>
+          View all comments for sport
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th style="width: 40%;">Content</th>
+            <th>Date and time</th>
+            <th>Approved</th>
+            <th>Blocked</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (c of commentsSport; track $index) {
+          <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.username }}</td>
+            <td>{{ c.content }}</td>
+            <td>{{ c.createdAt | date: 'short' }}</td>
+            <td>
+              <mat-form-field>
+                <mat-select
+                  [(value)]="c.approved"
+                  (selectionChange)="onApprovedChange(c, $event.value)"
+                >
+                  <mat-option [value]="true">True</mat-option>
+                  <mat-option [value]="false">False</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td><mat-form-field>
+              <mat-select
+                [(value)]="c.blocked"
+                (selectionChange)="onBlockedChange(c, $event.value)"
+              >
+                <mat-option [value]="true">True</mat-option>
+                <mat-option [value]="false">False</mat-option>
+              </mat-select>
+            </mat-form-field></td>
+        </tr>
+          }
+        </tbody>
+      </table>
+</mat-expansion-panel>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+      <mat-panel-title> Science </mat-panel-title>
+      <mat-panel-description>
+        View all comments for science
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Content</th>
+          <th>Date and time</th>
+          <th>Approved</th>
+          <th>Blocked</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of commentsScience; track $index) {
+        <tr>
+          {{c}}
+          <td>{{ c.id }}</td>
+          <td>{{ c.username }}</td>
+          <td>{{ c.content }}</td>
+          <td>{{ c.createdAt }}</td>
+          <td>
+            <mat-form-field>
+              <mat-select
+                [(value)]="c.approved"
+                (selectionChange)="onApprovedChange(c, $event.value)"
+              >
+                <mat-option [value]="true">True</mat-option>
+                <mat-option [value]="false">False</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td><mat-form-field>
+            <mat-select
+              [(value)]="c.blocked"
+              (selectionChange)="onBlockedChange(c, $event.value)"
+            >
+              <mat-option [value]="true">True</mat-option>
+              <mat-option [value]="false">False</mat-option>
+            </mat-select>
+          </mat-form-field></td>
+      </tr>
+        }
+      </tbody>
+    </table>
+</mat-expansion-panel>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+      <mat-panel-title> Culture </mat-panel-title>
+      <mat-panel-description>
+        View all comments
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Content</th>
+          <th>Date and time</th>
+          <th>Approved</th>
+          <th>Blocked</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of commentsCulture; track $index) {
+        <tr>
+          {{c}}
+          <td>{{ c.id }}</td>
+          <td>{{ c.username }}</td>
+          <td>{{ c.content }}</td>
+          <td>{{ c.createdAt }}</td>
+          <td>
+            <mat-form-field>
+              <mat-select
+                [(value)]="c.approved"
+                (selectionChange)="onApprovedChange(c, $event.value)"
+              >
+                <mat-option [value]="true">True</mat-option>
+                <mat-option [value]="false">False</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td><mat-form-field>
+            <mat-select
+              [(value)]="c.blocked"
+              (selectionChange)="onBlockedChange(c, $event.value)"
+            >
+              <mat-option [value]="true">True</mat-option>
+              <mat-option [value]="false">False</mat-option>
+            </mat-select>
+          </mat-form-field></td>
+      </tr>
+        }
+      </tbody>
+    </table>
+</mat-expansion-panel>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+      <mat-panel-title> Music </mat-panel-title>
+      <mat-panel-description>
+        View all comments
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Content</th>
+          <th>Date and time</th>
+          <th>Approved</th>
+          <th>Blocked</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of commentsMusic; track $index) {
+        <tr>
+          <td>{{ c.id }}</td>
+          <td>{{ c.username }}</td>
+          <td>{{ c.content }}</td>
+          <td>{{ c.createdAt }}</td>
+          <td>
+            <mat-form-field>
+              <mat-select
+                [(value)]="c.approved"
+                (selectionChange)="onApprovedChange(c, $event.value)"
+              >
+                <mat-option [value]="true">True</mat-option>
+                <mat-option [value]="false">False</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td><mat-form-field>
+            <mat-select
+              [(value)]="c.blocked"
+              (selectionChange)="onBlockedChange(c, $event.value)"
+            >
+              <mat-option [value]="true">True</mat-option>
+              <mat-option [value]="false">False</mat-option>
+            </mat-select>
+          </mat-form-field></td>
+      </tr>
+        }
+      </tbody>
+    </table>
+</mat-expansion-panel>
+

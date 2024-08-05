@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <div class="navbar-name">FORUM</div>
+
+  <ul class="navbar-links">
+    @if(isLoggedIn()){
+    <li><a routerLink="/forum">Home</a></li>
+    @if(getRole()=='admin'){
+    <li><a routerLink="/users">User menagment</a></li>
+    <li><a routerLink="/approvments">Comments menagment</a></li>
+    } @else if(getRole()=='moderator'){
+    <li><a routerLink="/approvments">Comments menagment</a></li>
+    } }
+  </ul>
+  @if(isLoggedIn()){
+  <div class="navbar-actions">
+    <button mat-flat-button routerLink="/" (click)="logout()">Logout</button>
+  </div>
+  }
+</nav>
